@@ -1,0 +1,65 @@
+# Miscellaneous
+*.class
+*.log
+*.lock
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.gradle/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Gradle
+.gradle
+build/
+
+# Android
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+*.aab
+*.dex
+
+# Flutter
+/aether/.flutter-plugins
+/aether/.flutter-plugins-dependencies
+/aether/.dart_tool/
+/aether/.packages
+/aether/.pub-cache/
+/aether/.pub/
+/aether/build/
+/aether/flutter_*.png
+/aether/flutter_*.jpg
+/aether/flutter_*.jpeg
+/aether/flutter_*.gif
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Unity (if applicable, though looks like Flutter usually)
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/

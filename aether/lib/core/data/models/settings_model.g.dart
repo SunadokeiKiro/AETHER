@@ -1,0 +1,50 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'settings_model.dart';
+
+// **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class SettingsModelAdapter extends TypeAdapter<SettingsModel> {
+  @override
+  final int typeId = 4;
+
+  @override
+  SettingsModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return SettingsModel(
+      themePreset: fields[0] as String? ?? 'default',
+      language: fields[1] as String? ?? 'ja',
+      geminiEnabled: fields[2] as bool? ?? true,
+      geminiModel: fields[3] as String? ?? 'flash',
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, SettingsModel obj) {
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.themePreset)
+      ..writeByte(1)
+      ..write(obj.language)
+      ..writeByte(2)
+      ..write(obj.geminiEnabled)
+      ..writeByte(3)
+      ..write(obj.geminiModel);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SettingsModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
