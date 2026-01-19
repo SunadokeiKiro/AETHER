@@ -46,6 +46,9 @@ class TimerPreset {
 // PROVIDERS
 // ============================================================================
 
+/// タイムクロック画面のタブインデックス（0=タイマー, 1=ストップウォッチ）
+final timeClockTabProvider = StateProvider<int>((ref) => 0);
+
 /// TimerPresetRepositoryのProvider
 final timerPresetRepositoryProvider = Provider<TimerPresetRepository>((ref) => TimerPresetRepository());
 
@@ -142,9 +145,16 @@ class TimerNotifier extends StateNotifier<TimerState> {
     });
   }
 
+
+
   void pause() {
     _timer?.cancel();
     state = state.copyWith(isRunning: false);
+  }
+
+  void stop() {
+    _timer?.cancel();
+    state = const TimerState();
   }
 
   void reset() {

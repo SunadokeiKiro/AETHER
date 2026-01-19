@@ -17,10 +17,10 @@ class SettingsModelAdapter extends TypeAdapter<SettingsModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SettingsModel(
-      themePreset: fields[0] as String? ?? 'default',
-      language: fields[1] as String? ?? 'ja',
-      geminiEnabled: fields[2] as bool? ?? true,
-      geminiModel: fields[3] as String? ?? 'flash',
+      themePreset: fields[0] as String,
+      language: fields[1] as String,
+      geminiEnabled: fields[2] as bool,
+      geminiModel: fields[3] as String,
     );
   }
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/data.dart';
-import '../data/data.dart';
 import 'design_tokens.dart';
 
 /// SettingsRepositoryのProvider
@@ -90,58 +89,60 @@ ThemeData _buildThemeData(DesignTokens tokens) {
     surfaceContainerHighest: palette.surfaceVariant,
   );
 
-  // テキストテーマ（ローカルバンドルのInterフォントを使用）
-  const String fontFamily = 'Inter';
-  
+  // テキストテーマ（Noto Sans JPに統一、日本語と英数字の両方をカバー）
+  const fontFamily = 'NotoSansJP';
+  const fallbackFonts = <String>[];
   final textTheme = TextTheme(
     displayLarge: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSize4xl,
       fontWeight: FontWeight.bold,
       color: palette.onBackground,
     ),
     displayMedium: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSize3xl,
       fontWeight: FontWeight.bold,
       color: palette.onBackground,
     ),
     headlineLarge: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSize2xl,
       fontWeight: FontWeight.w600,
       color: palette.onBackground,
     ),
     headlineMedium: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSizeXl,
       fontWeight: FontWeight.w600,
       color: palette.onBackground,
     ),
     titleLarge: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSizeLg,
-      fontWeight: FontWeight.w500,
-      color: palette.onSurface,
-    ),
-    titleMedium: TextStyle(
-      fontFamily: fontFamily,
-      fontSize: typography.fontSizeBase,
       fontWeight: FontWeight.w500,
       color: palette.onSurface,
     ),
     bodyLarge: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSizeBase,
       color: palette.onSurface,
     ),
     bodyMedium: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSizeSm,
       color: palette.onSurface,
     ),
     labelLarge: TextStyle(
       fontFamily: fontFamily,
+      fontFamilyFallback: fallbackFonts,
       fontSize: typography.fontSizeBase,
       fontWeight: FontWeight.w500,
       color: palette.onPrimary,
@@ -152,6 +153,9 @@ ThemeData _buildThemeData(DesignTokens tokens) {
     useMaterial3: true,
     colorScheme: colorScheme,
     scaffoldBackgroundColor: palette.background,
+    // アプリ全体のデフォルトフォント
+    fontFamily: fontFamily,
+    fontFamilyFallback: fallbackFonts,
     textTheme: textTheme,
     
     // AppBar
@@ -274,11 +278,15 @@ ThemeData _buildThemeData(DesignTokens tokens) {
       backgroundColor: palette.surface,
       surfaceTintColor: Colors.transparent,
       titleTextStyle: TextStyle(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
         fontSize: typography.fontSizeXl,
         fontWeight: FontWeight.w600,
         color: palette.onSurface,
       ),
       contentTextStyle: TextStyle(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
         fontSize: typography.fontSizeBase,
         color: palette.outline,
       ),
@@ -309,6 +317,36 @@ ThemeData _buildThemeData(DesignTokens tokens) {
         }
         return palette.surfaceVariant;
       }),
+    ),
+
+    // Tooltip（背景とテキストのコントラストを確保）
+    tooltipTheme: TooltipThemeData(
+      decoration: BoxDecoration(
+        color: palette.surfaceVariant,
+        borderRadius: BorderRadius.circular(geometry.borderRadiusSm),
+      ),
+      textStyle: TextStyle(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+        color: palette.onSurface,
+      ),
+    ),
+
+    // SnackBar
+    snackBarTheme: SnackBarThemeData(
+      contentTextStyle: TextStyle(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+      ),
+    ),
+
+    // PopupMenu
+    popupMenuTheme: PopupMenuThemeData(
+      textStyle: TextStyle(
+        fontFamily: fontFamily,
+        fontFamilyFallback: fallbackFonts,
+        color: palette.onSurface,
+      ),
     ),
   );
 }

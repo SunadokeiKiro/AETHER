@@ -22,7 +22,7 @@ class FolderModelAdapter extends TypeAdapter<FolderModel> {
       parentId: fields[2] as String?,
       colorValue: fields[3] as int,
       createdAt: fields[4] as DateTime,
-      sortOrder: fields[5] as int? ?? 0,
+      sortOrder: fields[5] as int,
     );
   }
 

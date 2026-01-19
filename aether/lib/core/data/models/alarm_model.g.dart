@@ -20,9 +20,9 @@ class AlarmModelAdapter extends TypeAdapter<AlarmModel> {
       id: fields[0] as String,
       hour: fields[1] as int,
       minute: fields[2] as int,
-      label: fields[3] as String? ?? '',
-      repeatDays: (fields[4] as List?)?.cast<int>() ?? [],
-      isEnabled: fields[5] as bool? ?? true,
+      label: fields[3] as String,
+      repeatDays: (fields[4] as List).cast<int>(),
+      isEnabled: fields[5] as bool,
     );
   }
 

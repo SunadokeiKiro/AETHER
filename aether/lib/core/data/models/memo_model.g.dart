@@ -22,9 +22,9 @@ class MemoModelAdapter extends TypeAdapter<MemoModel> {
       content: fields[2] as String,
       createdAt: fields[3] as DateTime,
       updatedAt: fields[4] as DateTime,
-      isPinned: fields[5] as bool? ?? false,
-      tags: (fields[6] as List?)?.cast<String>() ?? [],
-      sortOrder: fields[7] as int? ?? 0,
+      isPinned: fields[5] as bool,
+      tags: (fields[6] as List).cast<String>(),
+      sortOrder: fields[7] as int,
       folderId: fields[8] as String?,
     );
   }

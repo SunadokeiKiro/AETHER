@@ -6,7 +6,8 @@ part of 'calculator_history_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CalculatorHistoryModelAdapter extends TypeAdapter<CalculatorHistoryModel> {
+class CalculatorHistoryModelAdapter
+    extends TypeAdapter<CalculatorHistoryModel> {
   @override
   final int typeId = 5;
 

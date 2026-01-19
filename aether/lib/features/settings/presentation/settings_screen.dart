@@ -59,18 +59,36 @@ class SettingsScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         children: [
           // 言語設定セクション
-          Text(
-            '言語',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-            ),
+          Row(
+            children: [
+              Text(
+                '言語',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  '今後実装予定',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 12),
           Card(
             child: ListTile(
               leading: const Icon(Icons.language),
               title: const Text('アプリの言語'),
-              subtitle: Text(currentLang.nativeName),
+              subtitle: Text('${currentLang.nativeName}（現在は日本語のみ）'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => _showLanguageSelector(context, ref),
             ),

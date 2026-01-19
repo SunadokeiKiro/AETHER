@@ -20,7 +20,7 @@ class TimerPresetModelAdapter extends TypeAdapter<TimerPresetModel> {
       id: fields[0] as String,
       label: fields[1] as String,
       durationSeconds: fields[2] as int,
-      isBuiltIn: fields[3] as bool? ?? false,
+      isBuiltIn: fields[3] as bool,
     );
   }
 
